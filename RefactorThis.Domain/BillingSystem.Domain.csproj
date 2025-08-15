@@ -49,13 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvoiceService.cs" />
+    <Compile Include="BillingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RefactorThis.Persistence\RefactorThis.Persistence.csproj">
-      <Project>{33cdc796-ff75-449c-9637-59c2efc46361}</Project>
-      <Name>RefactorThis.Persistence</Name>
+    <ProjectReference Include="..\RefactorThis.Persistence\BillingSystem.Persistence.csproj">
+      <Project>{50F3F93C-6688-4B4B-8B30-3BDF6FA4485F}</Project>
+      <Name>BillingSystem.Persistence</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

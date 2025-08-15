@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using Xunit;
-using RefactorThis.Persistence;
+using BillingSystem.Persistence;
 
-namespace RefactorThis.Domain.Tests
+namespace BillingSystem.Domain.Tests
 {
-    public class InvoicePaymentProcessorTests
+    public class BillingSpec
     {
         [Fact]
         public void ProcessPayment_Should_ThrowException_When_NoInoiceFoundForPaymentReference( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
 
             Invoice invoice = null;
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -37,7 +37,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnFailureMessage_When_NoPaymentNeeded( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
 
             var invoice = new Invoice( repo )
             {
@@ -48,7 +48,7 @@ namespace RefactorThis.Domain.Tests
 
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -64,7 +64,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnFailureMessage_When_InvoiceAlreadyFullyPaid( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
 
             var invoice = new Invoice( repo )
             {
@@ -81,7 +81,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -97,7 +97,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnFailureMessage_When_PartialPaymentExistsAndAmountPaidExceedsAmountDue( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
             var invoice = new Invoice( repo )
             {
                 Amount = 10,
@@ -113,7 +113,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -129,7 +129,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnFailureMessage_When_NoPartialPaymentExistsAndAmountPaidExceedsInvoiceAmount()
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
             var invoice = new Invoice( repo )
             {
                 Amount = 5,
@@ -138,7 +138,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService(repo);
+            var paymentProcessor = new BillingService(repo);
 
             var payment = new Payment()
             {
@@ -154,7 +154,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnFullyPaidMessage_When_PartialPaymentExistsAndAmountPaidEqualsAmountDue()
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
             var invoice = new Invoice( repo )
             {
                 Amount = 10,
@@ -170,7 +170,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -186,7 +186,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnFullyPaidMessage_When_NoPartialPaymentExistsAndAmountPaidEqualsInvoiceAmount( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
             var invoice = new Invoice( repo )
             {
                 Amount = 10,
@@ -202,7 +202,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -218,7 +218,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnPartiallyPaidMessage_When_PartialPaymentExistsAndAmountPaidIsLessThanAmountDue( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
             var invoice = new Invoice( repo )
             {
                 Amount = 10,
@@ -234,7 +234,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {
@@ -250,7 +250,7 @@ namespace RefactorThis.Domain.Tests
         [Fact]
         public void ProcessPayment_Should_ReturnPartiallyPaidMessage_When_NoPartialPaymentExistsAndAmountPaidIsLessThanInvoiceAmount( )
         {
-            var repo = new InvoiceRepository( );
+            var repo = new BillingRepository( );
             var invoice = new Invoice( repo )
             {
                 Amount = 10,
@@ -259,7 +259,7 @@ namespace RefactorThis.Domain.Tests
             };
             repo.Add( invoice );
 
-            var paymentProcessor = new InvoiceService( repo );
+            var paymentProcessor = new BillingService( repo );
 
             var payment = new Payment( )
             {

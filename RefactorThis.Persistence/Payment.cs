@@ -1,4 +1,4 @@
-namespace RefactorThis.Persistence
+namespace BillingSystem.Persistence
 {
 	public class Payment
 	{

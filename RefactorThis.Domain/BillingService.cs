@@ -1,16 +1,16 @@
 using System;
 using System.Linq;
-using RefactorThis.Persistence;
+using BillingSystem.Persistence;
 
-namespace RefactorThis.Domain
+namespace BillingSystem.Domain
 {
-	public class InvoiceService
+	public class BillingService
 	{
-		private readonly InvoiceRepository _invoiceRepository;
+		private readonly BillingRepository _invoiceRepository;
 
-		public InvoiceService( InvoiceRepository invoiceRepository )
+		public BillingService(BillingRepository BillingRepository )
 		{
-			_invoiceRepository = invoiceRepository;
+			_invoiceRepository = BillingRepository;
 		}
 
 		public string ProcessPayment( Payment payment )
