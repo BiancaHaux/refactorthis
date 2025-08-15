@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RefactorThis.Persistence\BillingSystem.Persistence.csproj">
+    <ProjectReference Include="..\BillingSystem.Persistence\BillingSystem.Persistence.csproj">
       <Project>{50F3F93C-6688-4B4B-8B30-3BDF6FA4485F}</Project>
       <Name>BillingSystem.Persistence</Name>
     </ProjectReference>
