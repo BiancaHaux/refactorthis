@@ -1,5 +1,5 @@
-namespace RefactorThis.Persistence {
-	public class InvoiceRepository
+namespace BillingSystem.Persistence {
+	public class BillingRepository
 	{
 		private Invoice _invoice;
 

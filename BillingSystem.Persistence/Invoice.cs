@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-namespace RefactorThis.Persistence
+namespace BillingSystem.Persistence
 {
 	public class Invoice
 	{
-		private readonly InvoiceRepository _repository;
-		public Invoice( InvoiceRepository repository )
+		private readonly BillingRepository _repository;
+		public Invoice( BillingRepository repository )
 		{
 			_repository = repository;
 		}
